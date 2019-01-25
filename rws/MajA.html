@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>RIDER-WAITE-SMITH - Major Arcana</title>
+<style>
+img.card {
+	position: absolute;
+	cursor: move;
+	width:200px;
+}
+</style>
+</head>
+<body>
+<h1><a href="">French Cards</a> | RIDER-WAITE-SMITH | <a href="">Marseille Tarot</a></h1>
+<h2>MAJOR ARCANA | <a href="minA.html">Minor Arcana</a> <sub>(<a href="">Swords</a>|<a href="">Cups</a>|<a href="">Wands</a>|<a href="">Pentacles</a>)</sub></h2>
+<img class="card" src="./w300px/A1.jpg" />
+<img class="card" src="./w300px/A2.jpg" />
+<img class="card" src="./w300px/A3.jpg" />
+<img class="card" src="./w300px/A4.jpg" />
+<img class="card" src="./w300px/A5.jpg" />
+<img class="card" src="./w300px/A6.jpg" />
+<img class="card" src="./w300px/A7.jpg" />
+<img class="card" src="./w300px/A8.jpg" />
+<img class="card" src="./w300px/A9.jpg" />
+<img class="card" src="./w300px/A10.jpg" />
+<img class="card" src="./w300px/A11.jpg" />
+<img class="card" src="./w300px/A12.jpg" />
+<img class="card" src="./w300px/A13.jpg" />
+<img class="card" src="./w300px/A14.jpg" />
+<img class="card" src="./w300px/A15.jpg" />
+<img class="card" src="./w300px/A16.jpg" />
+<img class="card" src="./w300px/A17.jpg" />
+<img class="card" src="./w300px/A18.jpg" />
+<img class="card" src="./w300px/A19.jpg" />
+<img class="card" src="./w300px/A20.jpg" />
+<img class="card" src="./w300px/A21.jpg" />
+<img class="card" src="./w300px/A22.jpg" />
+<script>
+var aImgs = document.getElementsByTagName("img");
+
+for (i=0; i<aImgs.length; i++) {
+	oImg =  aImgs[i];
+	dragElement(oImg);
+	placeElement(aImgs.length,i,oImg);
+}
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  elmnt.onmousedown = dragMouseDown;
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+
+		elmnt.style.width = "133px";
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+function placeElement(iTot,iNdx,oEnt) {
+	var iMrgn = 150;
+	oEnt.style.left = (iMrgn+iNdx*20+"px");
+	oEnt.style.top = (iMrgn+iNdx*20+"px");
+}
+</script>
+</html>
