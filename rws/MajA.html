@@ -14,7 +14,7 @@ img.card {
 #box {
 	border: 1px black solid;
 	margin: 10px;
-	height: 233px;
+	height: 200px;
 	z-index: auto;
 }
 </style>
@@ -52,7 +52,13 @@ img.card {
 var aImgs = document.getElementsByTagName("img");
 var aRndCrds = new Array();
 var iImgs = aImgs.length;
-
+aRndCrds = populateArray(aRndCrds);
+aRndCrds = mixCards(aRndCrds);
+for (i=0; i<iImgs; i++) {
+	oImg =  aImgs[i];
+	dragElement(oImg);
+	placeElement(iImgs,i,oImg);
+}
 function shuffle(array) {
 	var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -79,7 +85,15 @@ for (i=0; i<iImgs; i++) {
 	aRndCrds.push("../rws/w300px/A"+(i+1)+".jpg");
 	aRndCrds = shuffle(aRndCrds);
 }
-
+function populateArray(aCrds) {
+	for (var j=1;j<=22;j++) {
+		aCrds.push("../rws/w300px/A"+j+".jpg");
+	}
+	return aCrds;
+}
+function mixCards(aCrds) {
+		return shuffle(aCrds);
+}
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;

@@ -14,7 +14,7 @@ img.card {
 #box {
 	border: 1px black solid;
 	margin: 10px;
-	height: 233px;
+	height: 200px;
 	z-index: auto;
 }
 </style>
@@ -91,12 +91,12 @@ var aRndCrds = new Array();
 var iImgs = aImgs.length;
 var sLtr = "C";
 
-
+aRndCrds = populateArray(aRndCrds);
+aRndCrds = mixCards(aRndCrds);
 for (i=0; i<iImgs; i++) {
 	oImg =  aImgs[i];
 	dragElement(oImg);
 	placeElement(iImgs,i,oImg);
-	mixCards(i);
 }
 
 function shuffle(array) {
@@ -117,17 +117,18 @@ function shuffle(array) {
 
   return array;
 }
-function mixCards(iNdx) {
-
-		for (var i=1;i<=14;i++) {
-			aRndCrds.push("../rws/w300px/S"+i+".jpg");
-			aRndCrds.push("../rws/w300px/C"+i+".jpg");
-			aRndCrds.push("../rws/w300px/W"+i+".jpg");
-			aRndCrds.push("../rws/w300px/D"+i+".jpg");
-		}
-		aRndCrds = shuffle(aRndCrds);
+function populateArray(aCrds) {
+	for (var i=1;i<=14;i++) {
+		aCrds.push("../rws/w300px/S"+i+".jpg");
+		aCrds.push("../rws/w300px/C"+i+".jpg");
+		aCrds.push("../rws/w300px/W"+i+".jpg");
+		aCrds.push("../rws/w300px/D"+i+".jpg");
+	}
+	return aCrds;
 }
-
+function mixCards(aCrds) {
+		return shuffle(aCrds);
+}
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 	//var iPrvZndx = null;
