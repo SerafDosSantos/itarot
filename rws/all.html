@@ -22,7 +22,6 @@ img.card {
 <body>
 	<h1><a href="../index.html">&lt;</a> | RIDER-WAITE-SMITH</h1>
 	<h2><a href="all.html">ALL</a> | <a href="MajA.html">MAJOR ARCANA</a> | <a href="minA.html">Minor Arcana</a> <sub>(<a href="minS.html">Swords</a>|<a href="minC.html">Cups</a>|<a href="minW.html">Wands</a>|<a href="minD.html">Pentacles</a>)</sub></h2>
-
 <div id="box">
 <img class="card" src="../rws/w300px/1865.jpg" />
 <img class="card" src="../rws/w300px/1865.jpg" />
@@ -83,42 +82,59 @@ img.card {
 <img class="card" src="../rws/w300px/1865.jpg" />
 <img class="card" src="../rws/w300px/1865.jpg" />
 <img class="card" src="../rws/w300px/1865.jpg" />
+
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
 </div>
 
 <script>
 var aImgs = document.getElementsByTagName("img");
 var aRndCrds = new Array();
 var iImgs = aImgs.length;
-var sLtr = "C";
-
-
 for (i=0; i<iImgs; i++) {
 	oImg =  aImgs[i];
 	dragElement(oImg);
 	placeElement(iImgs,i,oImg);
 	mixCards(i);
 }
-
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
-
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
-
     // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
   return array;
 }
 function mixCards(iNdx) {
-
+		for (var j=1;j<=22;j++) {
+			aRndCrds.push("../rws/w300px/A"+j+".jpg");
+		}
 		for (var i=1;i<=14;i++) {
 			aRndCrds.push("../rws/w300px/S"+i+".jpg");
 			aRndCrds.push("../rws/w300px/C"+i+".jpg");
@@ -127,28 +143,16 @@ function mixCards(iNdx) {
 		}
 		aRndCrds = shuffle(shuffle(shuffle(shuffle(aRndCrds))));
 }
-
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-	//var iPrvZndx = null;
-
   elmnt.onmousedown = dragMouseDown;
-
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
-
-		console.log(elmnt.src);
-
-		if (elmnt.src.includes("1865.jpg")) {
+		if (elmnt.src.includes("1865.jpg"))
 			elmnt.src = aRndCrds.shift();
-
-		}
-		//iPrvZndx = elmnt.style.zIndex;
 		elmnt.style.width = "133px";
 		elmnt.style.zIndex = 100;
-
-
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
@@ -156,13 +160,9 @@ function dragElement(elmnt) {
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
   }
-
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
-
-
-
     // calculate the new cursor position:
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
@@ -172,10 +172,7 @@ function dragElement(elmnt) {
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
   }
-
   function closeDragElement() {
-		//elmnt.style.zIndex = iPrvZndx;
-
 		// stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
@@ -183,12 +180,9 @@ function dragElement(elmnt) {
 }
 function placeElement(iTot,iNdx,oEnt) {
 	var iMrgnStrt = 150;
-	//var iCrdSz = 66;
 	var iCrdMrgn = 21;
 	oEnt.style.left = (iMrgnStrt+iCrdMrgn*iNdx+"px");
 	oEnt.style.top = (iMrgnStrt+"px");
 }
-/*
-*/
 </script>
 </html>
