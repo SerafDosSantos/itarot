@@ -2,16 +2,28 @@
 <head>
 <title>RIDER-WAITE-SMITH - Major Arcana</title>
 <style>
+body {
+	height: 200%
+}
 img.card {
 	position: absolute;
 	cursor: move;
-	width:200px;
+	width:66px;
+	z-index: auto;
+}
+#box {
+	border: 1px black solid;
+	margin: 10px;
+	height: 233px;
+	z-index: auto;
 }
 </style>
 </head>
 <body>
 <h1><a href="">French Cards</a> | RIDER-WAITE-SMITH | <a href="">Marseille Tarot</a></h1>
 <h2>MAJOR ARCANA | <a href="minA.html">Minor Arcana</a> <sub>(<a href="">Swords</a>|<a href="">Cups</a>|<a href="">Wands</a>|<a href="">Pentacles</a>)</sub></h2>
+
+<div id="box">
 <img class="card" src="./w300px/A1.jpg" />
 <img class="card" src="./w300px/A2.jpg" />
 <img class="card" src="./w300px/A3.jpg" />
@@ -34,6 +46,8 @@ img.card {
 <img class="card" src="./w300px/A20.jpg" />
 <img class="card" src="./w300px/A21.jpg" />
 <img class="card" src="./w300px/A22.jpg" />
+</div>
+
 <script>
 var aImgs = document.getElementsByTagName("img");
 
@@ -45,6 +59,9 @@ for (i=0; i<aImgs.length; i++) {
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+	//var iPrvZndx = null;
+
   elmnt.onmousedown = dragMouseDown;
 
   function dragMouseDown(e) {
@@ -62,7 +79,12 @@ function dragElement(elmnt) {
     e = e || window.event;
     e.preventDefault();
 
+
+		//iPrvZndx = elmnt.style.zIndex;
 		elmnt.style.width = "133px";
+		elmnt.style.zIndex = 100;
+
+
     // calculate the new cursor position:
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
@@ -74,16 +96,21 @@ function dragElement(elmnt) {
   }
 
   function closeDragElement() {
-    // stop moving when mouse button is released:
+		//elmnt.style.zIndex = iPrvZndx;
+
+		// stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
   }
 }
-
 function placeElement(iTot,iNdx,oEnt) {
-	var iMrgn = 150;
-	oEnt.style.left = (iMrgn+iNdx*20+"px");
-	oEnt.style.top = (iMrgn+iNdx*20+"px");
+	var iMrgnStrt = 150;
+	var iCrdSz = 66;
+	var iCrdMrgn = 7;
+	oEnt.style.left = (iMrgnStrt+iCrdMrgn+(iNdx*iCrdSz)+"px");
+	oEnt.style.top = (iMrgnStrt+"px");
 }
+/*
+*/
 </script>
 </html>
