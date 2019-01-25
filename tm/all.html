@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>MARSEILLE TAROT - All Cards</title>
+<title>TAROT DE MARSEILLE - All Cards</title>
 <style>
 body {
 	height: 200%
@@ -14,13 +14,13 @@ img.card {
 #box {
 	border: 1px black solid;
 	margin: 10px;
-	height: 233px;
+	height: 200px;
 	z-index: auto;
 }
 </style>
 </head>
 <body>
-	<h1><a href="../index.html">&lt;</a> | MARSEILLE TAROT</h1>
+	<h1><a href="../index.html">&lt;</a> | TAROT DE MARSEILLE</h1>
 	<h2><a href="all.html">ALL</a> | <a href="MajA.html">MAJOR ARCANA</a> | <a href="minA.html">Minor Arcana</a> <sub>(<a href="minS.html">Swords</a>|<a href="minC.html">Cups</a>|<a href="minW.html">Wands</a>|<a href="minD.html">Pentacles</a>)</sub></h2>
 <div id="box">
 <img class="card" src="../tm/w300px/cardback.jpg" />
@@ -111,11 +111,12 @@ img.card {
 var aImgs = document.getElementsByTagName("img");
 var aRndCrds = new Array();
 var iImgs = aImgs.length;
+aRndCrds = populateArray(aRndCrds);
+aRndCrds = mixCards(aRndCrds);
 for (i=0; i<iImgs; i++) {
 	oImg =  aImgs[i];
 	dragElement(oImg);
 	placeElement(iImgs,i,oImg);
-	mixCards(i);
 }
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -131,18 +132,20 @@ function shuffle(array) {
   }
   return array;
 }
-function mixCards(iNdx) {
-		for (var j=1;j<=22;j++) {
-			aRndCrds.push("../tm/w300px/A"+j+".jpg");
-		}
-		for (var i=1;i<=14;i++) {
-			aRndCrds.push("../tm/w300px/S"+i+".jpg");
-			aRndCrds.push("../tm/w300px/C"+i+".jpg");
-			aRndCrds.push("../tm/w300px/W"+i+".jpg");
-			aRndCrds.push("../tm/w300px/D"+i+".jpg");
-		}
-		aRndCrds = shuffle(aRndCrds);
+function populateArray(aCrds) {
+	for (var j=1;j<=22;j++) {
+		aCrds.push("../tm/w300px/A"+j+".jpg");
+	}
+	for (var i=1;i<=14;i++) {
+		aCrds.push("../tm/w300px/S"+i+".jpg");
+		aCrds.push("../tm/w300px/C"+i+".jpg");
+		aCrds.push("../tm/w300px/W"+i+".jpg");
+		aCrds.push("../tm/w300px/D"+i+".jpg");
+	}
+	return aCrds;
 }
+function mixCards(aCrds) {
+		return shuffle(aCrds);
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   elmnt.onmousedown = dragMouseDown;
