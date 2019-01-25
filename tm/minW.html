@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>MARSEILLE TAROT - Minor Arcana : Wands</title>
+<title>TAROT DE MARSEILLE - Minor Arcana : Wands</title>
 <style>
 body {
 	height: 200%
@@ -14,14 +14,14 @@ img.card {
 #box {
 	border: 1px black solid;
 	margin: 10px;
-	height: 233px;
+	height: 200px;
 	z-index: auto;
 }
 </style>
 </head>
 <body>
-	<h1><a href="../index.html">&lt;</a> MARSEILLE TAROT</h1>
-	<h2><a href="MajA.html">MAJOR ARCANA</a> | <a href="minA.html">Minor Arcana</a> <sub>(<a href="minS.html">&Eacute;p&eacute;es</a>|<a href="minC.html">Coupes</a>|<a href="minW.html">B&acirc;tons</a>|<a href="minD.html">Deniers</a>)</sub></h2>
+	<h1><a href="../index.html">&lt;</a> | TAROT DE MARSEILLE</h1>
+	<h2><a href="all.html">ALL</a> | <a href="MajA.html">MAJOR ARCANA</a> | <a href="minA.html">Minor Arcana</a> <sub>(<a href="minS.html">&Eacute;p&eacute;es</a>|<a href="minC.html">Coupes</a>|<a href="minW.html">B&acirc;tons</a>|<a href="minD.html">Deniers</a>)</sub></h2>
 
 <div id="box">
 <img class="card" src="../tm/w300px/cardback.jpg" />
@@ -66,16 +66,24 @@ function shuffle(array) {
 
   return array;
 }
+aRndCrds = populateArray(aRndCrds);
+aRndCrds = mixCards(aRndCrds);
 for (i=0; i<iImgs; i++) {
 	oImg =  aImgs[i];
 	dragElement(oImg);
 	placeElement(iImgs,i,oImg);
-	mixCards(i);
 }
-
-function mixCards(iNdx) {
-	aRndCrds.push("../tm/w300px/"+sLtr+(iNdx+1)+".jpg");
-	aRndCrds = shuffle(aRndCrds);
+function populateArray(aCrds) {
+	for (var i=1;i<=14;i++) {
+		//aCrds.push("../rws/w300px/S"+i+".jpg");
+		//aCrds.push("../rws/w300px/C"+i+".jpg");
+		aCrds.push("../tm/w300px/W"+i+".jpg");
+		//aCrds.push("../rws/w300px/D"+i+".jpg");
+	}
+	return aCrds;
+}
+function mixCards(aCrds) {
+		return shuffle(aCrds);
 }
 
 function dragElement(elmnt) {
