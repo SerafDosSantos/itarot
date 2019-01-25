@@ -21,7 +21,7 @@ img.card {
 </head>
 <body>
 <h1><a href="">French Cards</a> | RIDER-WAITE-SMITH | <a href="">Marseille Tarot</a></h1>
-<h2>MAJOR ARCANA | <a href="minA.html">Minor Arcana</a> <sub>(<a href="">Swords</a>|<a href="">Cups</a>|<a href="">Wands</a>|<a href="">Pentacles</a>)</sub></h2>
+<h2>MAJOR ARCANA | <a href="minA.html">Minor Arcana</a> <sub>(Swords|<a href="minC.html">Cups</a>|<a href="minW.html">Wands</a>|<a href="minD.html">Pentacles</a>)</sub></h2>
 
 <div id="box">
 <img class="card" src="../rws/w300px/1865.jpg" />
@@ -38,48 +38,45 @@ img.card {
 <img class="card" src="../rws/w300px/1865.jpg" />
 <img class="card" src="../rws/w300px/1865.jpg" />
 <img class="card" src="../rws/w300px/1865.jpg" />
-<img class="card" src="../rws/w300px/1865.jpg" />
-<img class="card" src="../rws/w300px/1865.jpg" />
-<img class="card" src="../rws/w300px/1865.jpg" />
-<img class="card" src="../rws/w300px/1865.jpg" />
-<img class="card" src="../rws/w300px/1865.jpg" />
-<img class="card" src="../rws/w300px/1865.jpg" />
-<img class="card" src="../rws/w300px/1865.jpg" />
-<img class="card" src="../rws/w300px/1865.jpg" />
+
 </div>
 
 <script>
 var aImgs = document.getElementsByTagName("img");
 var aRndCrds = new Array();
 var iImgs = aImgs.length;
+var sLtr = "S";
 
 function shuffle(array) {
-	var currentIndex = array.length, temporaryValue, randomIndex;
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-	// While there remain elements to shuffle...
-	while (0 !== currentIndex) {
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
 
-		// Pick a remaining element...
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
 
-		// And swap it with the current element.
-		temporaryValue = array[currentIndex];
-		array[currentIndex] = array[randomIndex];
-		array[randomIndex] = temporaryValue;
-	}
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
 
-	return array;
+  return array;
 }
 
 for (i=0; i<iImgs; i++) {
 	oImg =  aImgs[i];
 	dragElement(oImg);
 	placeElement(iImgs,i,oImg);
-	aRndCrds.push("../rws/w300px/A"+(i+1)+".jpg");
-	aRndCrds = shuffle(aRndCrds);
+	mixCards(i);
 }
 
+function mixCards(iNdx) {
+	aRndCrds.push("../rws/w300px/"+sLtr+(iNdx+1)+".jpg");
+	aRndCrds = shuffle(aRndCrds);
+}
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -136,7 +133,7 @@ function dragElement(elmnt) {
 }
 function placeElement(iTot,iNdx,oEnt) {
 	var iMrgnStrt = 150;
-	var iCrdSz = 66;
+	//var iCrdSz = 66;
 	var iCrdMrgn = 21;
 	oEnt.style.left = (iMrgnStrt+iCrdMrgn*iNdx+"px");
 	oEnt.style.top = (iMrgnStrt+"px");
