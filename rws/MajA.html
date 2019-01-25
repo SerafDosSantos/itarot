@@ -20,46 +20,73 @@ img.card {
 </style>
 </head>
 <body>
+<script>
+/*
+"./w300px/A1.jpg"
+"./w300px/A2.jpg"
+"./w300px/A3.jpg"
+"./w300px/A4.jpg"
+"./w300px/A5.jpg"
+"./w300px/A6.jpg"
+"./w300px/A7.jpg"
+"./w300px/A8.jpg"
+"./w300px/A9.jpg"
+"./w300px/A10.jpg"
+"./w300px/A11.jpg"
+"./w300px/A12.jpg"
+"./w300px/A13.jpg"
+"./w300px/A14.jpg"
+"./w300px/A15.jpg"
+"./w300px/A16.jpg"
+"./w300px/A17.jpg"
+"./w300px/A18.jpg"
+"./w300px/A19.jpg"
+"./w300px/A20.jpg"
+"./w300px/A21.jpg"
+"./w300px/A22.jpg"
+*/
+</script>
 <h1><a href="">French Cards</a> | RIDER-WAITE-SMITH | <a href="">Marseille Tarot</a></h1>
 <h2>MAJOR ARCANA | <a href="minA.html">Minor Arcana</a> <sub>(<a href="">Swords</a>|<a href="">Cups</a>|<a href="">Wands</a>|<a href="">Pentacles</a>)</sub></h2>
 
 <div id="box">
-<img class="card" src="./w300px/A1.jpg" />
-<img class="card" src="./w300px/A2.jpg" />
-<img class="card" src="./w300px/A3.jpg" />
-<img class="card" src="./w300px/A4.jpg" />
-<img class="card" src="./w300px/A5.jpg" />
-<img class="card" src="./w300px/A6.jpg" />
-<img class="card" src="./w300px/A7.jpg" />
-<img class="card" src="./w300px/A8.jpg" />
-<img class="card" src="./w300px/A9.jpg" />
-<img class="card" src="./w300px/A10.jpg" />
-<img class="card" src="./w300px/A11.jpg" />
-<img class="card" src="./w300px/A12.jpg" />
-<img class="card" src="./w300px/A13.jpg" />
-<img class="card" src="./w300px/A14.jpg" />
-<img class="card" src="./w300px/A15.jpg" />
-<img class="card" src="./w300px/A16.jpg" />
-<img class="card" src="./w300px/A17.jpg" />
-<img class="card" src="./w300px/A18.jpg" />
-<img class="card" src="./w300px/A19.jpg" />
-<img class="card" src="./w300px/A20.jpg" />
-<img class="card" src="./w300px/A21.jpg" />
-<img class="card" src="./w300px/A22.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
+<img class="card" src="../rws/w300px/1865.jpg" />
 </div>
+<img class="card" src="../rws/w300px/1865.jpg" />
 
 <script>
 var aImgs = document.getElementsByTagName("img");
-
-for (i=0; i<aImgs.length; i++) {
+var aRndCrds = new Array();
+var iImgs = aImgs.length;
+for (i=0; i<iImgs; i++) {
 	oImg =  aImgs[i];
 	dragElement(oImg);
-	placeElement(aImgs.length,i,oImg);
+	placeElement(iImgs,i,oImg);
+	aRndCrds.push("../rws/w300px/A"+Math.ceil(Math.random()*iImgs)+".jpg");
 }
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
 	//var iPrvZndx = null;
 
   elmnt.onmousedown = dragMouseDown;
@@ -67,6 +94,18 @@ function dragElement(elmnt) {
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
+
+		console.log(elmnt.src);
+
+		if (elmnt.src.includes("1865.jpg")) {
+			elmnt.src = aRndCrds.shift();
+
+		}
+		//iPrvZndx = elmnt.style.zIndex;
+		elmnt.style.width = "133px";
+		elmnt.style.zIndex = 100;
+
+
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
@@ -79,10 +118,6 @@ function dragElement(elmnt) {
     e = e || window.event;
     e.preventDefault();
 
-
-		//iPrvZndx = elmnt.style.zIndex;
-		elmnt.style.width = "133px";
-		elmnt.style.zIndex = 100;
 
 
     // calculate the new cursor position:
