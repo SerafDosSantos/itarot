@@ -1,8 +1,8 @@
 
 function populateArray(aCrds) {
-	aCrds.push("../rws/w300px/S10.jpg");
-	aCrds.push("../rws/w300px/C10.jpg");
-	aCrds.push("../rws/w300px/W10.jpg");
-	aCrds.push("../rws/w300px/D10.jpg");
+	aCrds.push("../tm/w300px/S1.jpg");
+	aCrds.push("../tm/w300px/C1.jpg");
+	aCrds.push("../tm/w300px/W1.jpg");
+	aCrds.push("../tm/w300px/D1.jpg");
 	return aCrds;
 }
