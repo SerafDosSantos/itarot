@@ -3,7 +3,9 @@
 <title>TAROT DE MARSEILLE - Minor Arcana : Pentacles</title>
 <style>
 body {
-	height: 200%
+	height: 200%;
+	font: 0.7em Georgia, serif;
+
 }
 img.card {
 	position: absolute;
@@ -21,8 +23,7 @@ img.card {
 </head>
 <body>
 	<h1><a href="../index.html">&lt;</a> | TAROT DE MARSEILLE</h1>
-	<h2><a href="all.html">ALL</a> | <a href="MajA.html">MAJOR ARCANA</a> | <a href="minA.html">Minor Arcana</a> <sub>(<a href="minS.html">&Eacute;p&eacute;es</a>|<a href="minC.html">Coupes</a>|<a href="minW.html">B&acirc;tons</a>|<a href="minD.html">Deniers</a>)</sub></h2>
-
+<h2><a href="all.html">ALL</a> | <a href="MajA.html">MAJOR ARCANA</a> | <a href="minA.html">Minor Arcana</a> <sub>(<a href="minAA.html">All Aces</a> | <a href="Aroys.html">All Courts</a> | (<a href="minS.html">Swords</a><sub><a href="roysS.html">[Royals]</a></sub>|<a href="minC.html">Cups</a><sub><a href="roysC.html">[Royals]</a></sub>|<a href="minW.html">Wands</a><sub><a href="roysW.html">[Royals]</a></sub>|<a href="minD.html">Pentacles</a><sub><a href="roysD.html">[Royals]</a></sub>)</sub></h2>
 <div id="box">
 <img class="card" src="../tm/w300px/cardback.jpg" />
 <img class="card" src="../tm/w300px/cardback.jpg" />
@@ -41,114 +42,7 @@ img.card {
 
 </div>
 
-<script>
-var aImgs = document.getElementsByTagName("img");
-var aRndCrds = new Array();
-var iImgs = aImgs.length;
-var sLtr = "D";
+<script src="../scripts/tm/minD.js" type="text/javascript"></script>
+<script src="../scripts/tm/base.js" type="text/javascript"></script>
 
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}
-aRndCrds = populateArray(aRndCrds);
-aRndCrds = mixCards(aRndCrds);
-for (i=0; i<iImgs; i++) {
-	oImg =  aImgs[i];
-	dragElement(oImg);
-	placeElement(iImgs,i,oImg);
-}
-function populateArray(aCrds) {
-//	for (var j=1;j<=22;j++) {
-//		aCrds.push("../rws/w300px/A"+j+".jpg");
-	//}
-	for (var i=1;i<=14;i++) {
-		//aCrds.push("../rws/w300px/S"+i+".jpg");
-		//aCrds.push("../rws/w300px/C"+i+".jpg");
-		//aCrds.push("../rws/w300px/W"+i+".jpg");
-		aCrds.push("../tm/w300px/D"+i+".jpg");
-	}
-	return aCrds;
-}
-function mixCards(aCrds) {
-		return shuffle(aCrds);
-}
-
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-	//var iPrvZndx = null;
-
-  elmnt.onmousedown = dragMouseDown;
-
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-
-		console.log(elmnt.src);
-
-		if (elmnt.src.includes("cardback.jpg")) {
-			elmnt.src = aRndCrds.shift();
-
-		}
-		//iPrvZndx = elmnt.style.zIndex;
-		elmnt.style.width = "133px";
-		elmnt.style.zIndex = 100;
-
-
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
-
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-
-
-
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
-
-  function closeDragElement() {
-		//elmnt.style.zIndex = iPrvZndx;
-
-		// stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
-function placeElement(iTot,iNdx,oEnt) {
-	var iMrgnStrt = 150;
-	//var iCrdSz = 66;
-	var iCrdMrgn = 21;
-	oEnt.style.left = (iMrgnStrt+iCrdMrgn*iNdx+"px");
-	oEnt.style.top = (iMrgnStrt+"px");
-}
-/*
-*/
-</script>
 </html>
