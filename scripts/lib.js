@@ -65,3 +65,7 @@ function placeElement(iTot,iNdx,oEnt) {
 	oEnt.style.left = (iMrgnStrt+iCrdMrgn*iNdx+"px");
 	oEnt.style.top = (iMrgnStrt+"px");
 }
+
+function pp() {
+  alert("print!");
+}
