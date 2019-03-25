@@ -1,7 +1,7 @@
 //
 //
 //
-(function () {
+function init () {
   sCB = "cardback.jpg";	// cardback
   aRndCrds = populateArray(aRndCrds);
   aRndCrds = shuffle(aRndCrds);
@@ -11,4 +11,6 @@
   	dragElement(oImg);
   	placeElement(iImgs,i,oImg);
   }
-})()
+}
+
+init();
