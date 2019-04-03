@@ -67,5 +67,5 @@ function placeElement(iTot,iNdx,oEnt) {
 }
 
 function pp() {
-  alert("print!");
+  return false;
 }
