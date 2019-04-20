@@ -1,6 +1,6 @@
 body {
 	height: 200%;
-	font: 0.7em Georgia, serif;
+	font: 0.7em Tahoma, serif;
 	background-color: #eeeeee;
 }
 img.card {
@@ -8,6 +8,7 @@ img.card {
 	cursor: move;
 	width:66px;
 	z-index: auto;
+  border: 1px black solid;
 }
 #box1, #box2 {
   border: 1px black solid;
@@ -17,5 +18,13 @@ img.card {
   z-index: auto;
   background-color: white;
   position: relative;
-  float: none;
+  float: left;
+}
+
+#box1 {
+	width: 51%;
+	clear: right;
+}
+#box2 {
+	width: 43%;
 }
