@@ -22,9 +22,13 @@ img.card {
 }
 
 #box1 {
-	width: 51%;
+	width: 950px;
 	clear: right;
 }
 #box2 {
-	width: 43%;
+	width: 800px;
+}
+
+#menu {
+	clear: left;
 }
