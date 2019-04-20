@@ -2,6 +2,7 @@ body {
 	height: 200%;
 	font: 0.7em Tahoma, serif;
 	background-color: #eeeeee;
+	padding: 100px;
 }
 img.card {
 	position: absolute;
@@ -15,4 +16,5 @@ img.card {
 	height: 200px;
 	z-index: auto;
 	background-color: white;
+	width: 1750px;
 }
