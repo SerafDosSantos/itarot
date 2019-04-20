@@ -3,6 +3,7 @@ body {
 	font: 0.7em Tahoma, serif;
 	background-color: #eeeeee;
 	padding: 100px;
+	padding-top: 0px;
 }
 img.card {
 	position: absolute;
