@@ -4,7 +4,7 @@ body {
 	background-color: #eeeeee;
 }
 img.card {
-	position: auto;
+	position: absolute;
 	cursor: move;
 	width:66px;
 	z-index: auto;

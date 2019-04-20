@@ -1,9 +1,10 @@
 sCB = "000.jpg";
 sCS = "133px";
-iCrdMrgn = 5;
+iCrdTop = 50;
+iCrdMrgn = 77;
 iMrgnStrt = 20;
 aRndCrdsC = populateArray(12,aRndCrdsC,"Astroracle-C");
-aRndCrdsP = populateArray(10,aRndCrdsP,"Astroracle-C");
+aRndCrdsP = populateArray(10,aRndCrdsP,"Astroracle-P");
 aRndCrdsC = shuffle(aRndCrdsC);
 aRndCrdsP = shuffle(aRndCrdsP);
 
