@@ -4,7 +4,7 @@
 var aImgs = document.getElementsByTagName("img");
 var aRndCrds = new Array();
 var iImgs = aImgs.length;
-var sCS = "133px";	// card size on appear
+var sCS;	// card size on appear
 var sCB;	// cardback
 
 
