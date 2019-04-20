@@ -1,13 +1,21 @@
-//
-//
-//
-sCB = "000.jpg";	// cardback
-sCS = "133px";	// card size on appear
-aRndCrds = populateArray(aRndCrds);
-aRndCrds = shuffle(aRndCrds);
+sCB = "000.jpg";
+sCS = "133px";
+iCrdMrgn = 5;
+iMrgnStrt = 20;
+aRndCrdsC = populateArray(12,aRndCrdsC,"Astroracle-C");
+aRndCrdsP = populateArray(10,aRndCrdsP,"Astroracle-C");
+aRndCrdsC = shuffle(aRndCrdsC);
+aRndCrdsP = shuffle(aRndCrdsP);
 
-for (i=0; i<iImgs; i++) {
-	oImg =  aImgs[i];
+for (i=0; i<iImgsC; i++) {
+	oImg =  aImgsC[i];
 	dragElement(oImg);
-	placeElement(iImgs,i,oImg);
+	placeElement(iImgsC,i,oImg);
+}
+
+
+for (i=0; i<iImgsP; i++) {
+	oImg =  aImgsP[i];
+	dragElement(oImg);
+	placeElement(iImgsP,i,oImg);
 }
