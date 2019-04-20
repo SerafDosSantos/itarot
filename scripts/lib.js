@@ -4,6 +4,7 @@
 var aImgs = document.getElementsByTagName("img");
 var aRndCrds = new Array();
 var iImgs = aImgs.length;
+var iPaddTop = 80;
 var sCS;	// card size on appear
 var sCB;	// cardback
 
@@ -63,7 +64,7 @@ function placeElement(iTot,iNdx,oEnt) {
 	var iMrgnStrt = 150;
 	var iCrdMrgn = 21;
 	oEnt.style.left = (iMrgnStrt+iCrdMrgn*iNdx+"px");
-	oEnt.style.top = (iMrgnStrt+"px");
+	oEnt.style.top = (iMrgnStrt+iPaddTop+"px");
 }
 
 function pp() {
