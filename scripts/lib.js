@@ -33,7 +33,7 @@ function dragElement(elmnt) {
 		if (elmnt.src.includes(sCB))
 			elmnt.src = aRndCrds.shift();
 		elmnt.style.width = sCS;
-		elmnt.style.zIndex = 100;
+		elmnt.style.zIndex+=10;
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
