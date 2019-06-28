@@ -1,10 +1,13 @@
 //
 //
 //
+var aImgsH = document.getElementsByClassName("house");
 var aImgsC = document.getElementsByClassName("constellation");
 var aImgsP = document.getElementsByClassName("planet");
+var aRndCrdsH = new Array();
 var aRndCrdsC = new Array();
 var aRndCrdsP = new Array();
+var iImgsH = aImgsH.length;
 var iImgsC = aImgsC.length;
 var iImgsP = aImgsP.length;
 var sCS;	// card size on appear
@@ -36,8 +39,10 @@ function dragElement(elmnt) {
 		if (elmnt.src.includes(sCB)) {
       if (elmnt.className.includes("planet")) {
         elmnt.src = aRndCrdsP.shift();
-      } else {
+      } else if (elmnt.className.includes("constellation")) {
         elmnt.src = aRndCrdsC.shift();
+      } else {
+        elmnt.src = aRndCrdsH.shift();
       }
 	  }
 		elmnt.style.width = sCS;

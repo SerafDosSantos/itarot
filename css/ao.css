@@ -12,7 +12,7 @@ img.card {
 	z-index: auto;
   border: 1px black solid;
 }
-#box1, #box2 {
+#box0, #box1, #box2 {
   border: 1px black solid;
   margin: 10px;
   padding: 10px;
@@ -22,7 +22,9 @@ img.card {
   position: relative;
   float: left;
 }
-
+#box0 {
+    width: 950px;
+}
 #box1 {
 	width: 950px;
 	clear: right;
